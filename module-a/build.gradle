@@ -1,0 +1,28 @@
+
+plugins {
+    id 'java'
+    id 'java-library'
+    id 'org.gradlex.java-ecosystem-capabilities' version '1.1'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    components {
+        withModule('org.hibernate:hibernate', HibernateRule)
+    }
+
+    api 'org.hibernate:hibernate-core:5.4.18.Final'
+    api 'org.hibernate:hibernate-entitymanager:5.4.18.Final'
+
+    runtimeOnly ('jaxen:jaxen:1.1.1') {
+        exclude group: 'com.ibm.icu', module: 'icu4j'
+    }
+
+    implementation 'dom4j:dom4j:1.6'
+
+    testImplementation project(':module-b')
+}
+

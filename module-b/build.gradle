@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+    id 'java-library'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':module-a')
+
+    implementation 'org.unitils:unitils-database:3.3'
+}
+
